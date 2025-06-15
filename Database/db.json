@@ -1,0 +1,93 @@
+{
+    "blog" : [
+        {
+            "id": 1,
+            "title": "First Blog Post",
+            "content": "This is the content of the first blog post.",
+            "author": "Author One",
+            "date": "2023-01-01"
+        },
+        {
+            "id": 2,
+            "title": "Second Blog Post",
+            "content": "This is the content of the second blog post.",
+            "author": "Author Two",
+            "date": "2023-02-01"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "user1",
+            "email": "user1@example.com",
+            "password": "password_1",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "username": "user2",
+            "email": "user2@example.com",
+            "password": "password_2",
+            "role": "user"
+        }
+    ],
+
+    "tasks": [
+    {
+    "id": 1,
+    "title": "Design Dashboard UI",
+    "status": "In Progress",
+    "date": "2025-06-18",
+    "description": "Create the wireframes and high-fidelity UI designs for the admin dashboard using Figma."
+  },
+  {
+    "id": 2,
+    "title": "API Integration for Tasks",
+    "status": "Complete",
+    "date": "2025-06-10",
+    "description": "Successfully integrated the task module API endpoints with the frontend using React Query."
+  },
+  {
+    "id": 3,
+    "title": "Prepare Client Demo",
+    "status": "Pending",
+    "date": "2025-06-20",
+    "description": "Prepare a working demo of the project features to present to the client on Zoom."
+  },
+  {
+    "id": 4,
+    "title": "Bug Fix: Login Validation",
+    "status": "In Progress",
+    "date": "2025-06-16",
+    "description": "Fix the issue where users can submit an empty login form and still proceed to the dashboard."
+  },
+  {
+    "id": 5,
+    "title": "Write Documentation",
+    "status": "Pending",
+    "date": "2025-06-25",
+    "description": "Document all REST API endpoints and provide usage examples for frontend developers."
+  },
+  {
+    "id": 6,
+    "title": "Optimize Images",
+    "status": "Complete",
+    "date": "2025-06-08",
+    "description": "Compress and convert all images to WebP format to improve load times."
+  },
+  {
+    "id": 7,
+    "title": "Setup CI/CD Pipeline",
+    "status": "In Progress",
+    "date": "2025-06-19",
+    "description": "Configure GitHub Actions to automate build and deployment for staging and production environments."
+  },
+  {
+    "id": 8,
+    "title": "Add Dark Mode",
+    "status": "Pending",
+    "date": "2025-06-22",
+    "description": "Implement light and dark theme switching using context API and styled-components."
+  }
+  ]
+}
