@@ -5,6 +5,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useTheme } from "./context/ThemeContext";
 import { darkTheme, lightTheme } from "./theme";
 import AppLayout from "./Layout";
+import GlobalStyles from "./GlobalStyle/fonts";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 
   return (
     <StyledThemeProvider theme={theme}>
+      <GlobalStyles/>
       <BrowserRouter>
         <AppLayout />
       </BrowserRouter>

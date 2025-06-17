@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Button, Table, Tag } from "antd";
-import { PlusCircleFilled } from "@ant-design/icons";
+import { Button, Table } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import { useBlogStatistics } from "../Hooks/api";
+import tabilUtils from "./tabilUtils";
 
 const DataTable = styled.div`
   background-color: #ffffff;
@@ -27,39 +28,35 @@ const Title = styled.div`
 
 const Body = styled.div``;
 
+const NewTaskButton = styled(Button)`
+  background-color: #0f172a;
+  color: white;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: 500;
+`;
 
+const StyledTable = styled(Table)`
+  border-radius: 7px;
+  box-shadow: 0 3px 4px rgba(15, 15, 15, 0.1);
 
-const columns = [
-  {
-    title: "Title",
-    dataIndex: "title",
-    key: "title",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
-    render: (status : string)=>{
-      let color = 'default';
-      if (status === 'Complete') color='success';
-      else if(status === 'Pending') color = 'warning';
-      else if(status === 'In Progress') color = 'processing';
+  .ant-table-thead > tr > th {
+    background-color: #f1f5f9;
+  }
 
-      return(
-        <Tag color={color} key={status}>
-          {status}
-        </Tag>
-      )
-    }
-  },
-  {
-    title: "Date",
-    dataIndex: "date",
-    key: "date",
-  },
-];
+  .ant-table-tbody > tr > td {
+    padding: 15px 20px;
+  }
+
+  .ant-table-tbody > tr:hover > td {
+    background-color: #f1f5f9;
+  }
+`;
+
 const Tasks = () => {
   const { statistics, isLoading, error } = useBlogStatistics();
+  const { columns } = tabilUtils();
+
   console.log(statistics?.tasks);
   if (isLoading || !statistics) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
@@ -68,10 +65,10 @@ const Tasks = () => {
       <DataTable>
         <TableHead>
           <Title>Tasks</Title>
-          <Button icon={<PlusCircleFilled />}>New Task</Button>
+          <NewTaskButton icon={<PlusOutlined />}>New Task</NewTaskButton>
         </TableHead>
         <Body>
-          <Table columns={columns} dataSource={statistics?.tasks} />
+          <StyledTable columns={columns} dataSource={statistics?.tasks} />
         </Body>
       </DataTable>
     </>
