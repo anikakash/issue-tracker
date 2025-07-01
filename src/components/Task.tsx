@@ -7,11 +7,10 @@ import tabilUtils from "./tabilUtils";
 const DataTable = styled.div`
   background-color: #ffffff;
   padding: 17px;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 17px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
 `;
 
 const TableHead = styled.div`
@@ -57,7 +56,7 @@ const Tasks = () => {
   const { statistics, isLoading, error } = useBlogStatistics();
   const { columns } = tabilUtils();
 
-  console.log(statistics?.tasks);
+  // console.log(statistics?.tasks);
   if (isLoading || !statistics) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
   return (

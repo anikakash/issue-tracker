@@ -9,12 +9,12 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-import Blog from "../components/Blog";
 import DashBoard from "../components/DashBoard";
 import ThemeMood from "../components/ThemeMood";
 import Tasks from "../components/Task";
 import styled from "styled-components";
 import TaskView from "../components/atmos/TaskView";
+import Calander from "../components/Calendar";
 
 const { Header, Sider, Content } = Layout;
 
@@ -130,11 +130,11 @@ const AppLayout = () => {
         </StyledHeader>
 
         {/* Content */}
-        <Content style={{ padding: "24px" }}>
+        <Content >
           <Routes>
             <Route path="/" element={<DashBoard />} />
             <Route path="/tasks" element={<Tasks />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/calander" element={<Calander/>}/>
             <Route path='/tasks/view/:id' element={<TaskView/>}/>
           </Routes>
         </Content>

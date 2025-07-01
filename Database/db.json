@@ -79,7 +79,7 @@
     "id": 7,
     "title": "Setup CI/CD Pipeline",
     "status": "In Progress",
-    "date": "2025-06-19",
+    "date": "2025-06-18",
     "description": "Configure GitHub Actions to automate build and deployment for staging and production environments."
   },
   {

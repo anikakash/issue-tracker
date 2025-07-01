@@ -12,7 +12,7 @@ import styled from 'styled-components';
 
 const SidebarContainer = styled.div`
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: #fafafa;
 `;
 
 const Logo = styled.div`
@@ -97,6 +97,11 @@ const Sidebar: React.FC = () => {
             key: '/settings',
             icon: <SettingOutlined />,
           },
+          {
+            label: 'Calander',
+            key: '/calander',
+            icon: <CalendarOutlined/>
+          }
         ]}
       />
     </SidebarContainer>

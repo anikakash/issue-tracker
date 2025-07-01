@@ -10,6 +10,7 @@ import {
   Legend,
   Tooltip,
 } from "recharts";
+import GithubStats from "./GithubStats";
 
 const DataTable = styled.div`
   background-color: #ffffff;
@@ -64,7 +65,7 @@ const ChartContainer = styled.div`
 
 const DashBoard = () => {
   const { statistics, isLoading, error } = useBlogStatistics();
-  console.log(statistics?.tasks);
+  // console.log(statistics?.tasks);
 
   const pendingTasks =
     statistics?.tasks?.filter((task) => task.status !== "Complete") || [];
@@ -138,6 +139,8 @@ const DashBoard = () => {
           </ResponsiveContainer>
         </ChartContainer>
       </Boady>
+
+      <GithubStats/>
     </DataTable>
   );
 };
