@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import { Button, Table } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
-import { useBlogStatistics } from "../Hooks/api";
-import tabilUtils from "./tabilUtils";
+import { PlusOutlined } from '@ant-design/icons';
+import { Button, Table } from 'antd';
+import styled from 'styled-components';
+
+import tableColumns from '../../../features/dashboard/utils/tableColumns';
+import { useTaskStats } from '../../../hooks/useTaskStats';
 
 const DataTable = styled.div`
   background-color: #ffffff;
@@ -53,8 +54,8 @@ const StyledTable = styled(Table)`
 `;
 
 const Tasks = () => {
-  const { statistics, isLoading, error } = useBlogStatistics();
-  const { columns } = tabilUtils();
+  const { statistics, isLoading, error } = useTaskStats();
+  const { columns } = tableColumns();
 
   // console.log(statistics?.tasks);
   if (isLoading || !statistics) return <div>Loading...</div>;

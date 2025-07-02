@@ -62,7 +62,7 @@ const StyledMenu = styled(Menu)`
   }
 `;
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,7 +70,7 @@ const Sidebar: React.FC = () => {
     <SidebarContainer>
       <Logo>
         <FolderOutlined style={{ color: '#f0c000', fontSize: '24px' }} /> 
-        Task Admin
+       {!collapsed && 'Task Admin'}
       </Logo>
       <StyledMenu
         mode="inline"
@@ -93,14 +93,14 @@ const Sidebar: React.FC = () => {
             icon: <CalendarOutlined />,
           },
           {
-            label: 'Settings',
-            key: '/settings',
-            icon: <SettingOutlined />,
-          },
-          {
             label: 'Calander',
             key: '/calander',
             icon: <CalendarOutlined/>
+          },
+          {
+            label: 'Setting',
+            key: '/setting',
+            icon: <SettingOutlined />,
           }
         ]}
       />

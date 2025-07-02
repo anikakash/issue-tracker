@@ -1,11 +1,12 @@
 // src/App.tsx
-import { BrowserRouter} from "react-router-dom";
+// import { BrowserRouter} from "react-router-dom";
 
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useTheme } from "./context/ThemeContext";
 import { darkTheme, lightTheme } from "./theme";
-import AppLayout from "./Layout";
+// import AppLayout from "./components/Layout/DashboardLayout/index";
 import GlobalStyles from "./GlobalStyle/fonts";
+import { BaseRoutes } from "./routes";
 
 
 const App = () => {
@@ -19,9 +20,10 @@ const App = () => {
   return (
     <StyledThemeProvider theme={theme}>
       <GlobalStyles/>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <AppLayout />
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <BaseRoutes/>
     </StyledThemeProvider>
   );
 };

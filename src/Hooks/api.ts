@@ -1,1 +1,0 @@
-export {useGetBlogStatistics as useBlogStatistics} from "./useGetBlogStatistics";
