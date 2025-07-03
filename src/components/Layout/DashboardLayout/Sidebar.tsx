@@ -79,7 +79,7 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
         items={[
           {
             label: 'Dashboard',
-            key: '/',
+            key: '/dashboard',
             icon: <AppstoreOutlined />,
           },
           {

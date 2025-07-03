@@ -4,7 +4,7 @@ export const PUBLIC_ROUTES = {
 
 export const PRIVATE_ROUTES = {
   INDEX: '',
-  DASHBOARD: '',
+  DASHBOARD: 'dashboard',
   TASK: 'tasks',
   CREATE: 'create',
   TASK_EDIT: 'edit',
@@ -16,7 +16,7 @@ export const PRIVATE_ROUTES = {
 
 export const ROUTES = {
   LOGIN: '/',
-  DASHBOARD: 'dashboard',
+  DASHBOARD: '/dashboard',
   TASK: 'tasks',
   SETTING: 'setting',
   CALANDER: 'calander',
