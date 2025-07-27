@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import { useBlogStatistics } from '../Hooks/api';
+import { useTaskStats } from '../../../hooks/useTaskStats';
 import styled from 'styled-components';
 import { Badge, Button, Calendar as AntCalendar, Modal, Tooltip } from 'antd';
 import type { Dayjs } from 'dayjs';
@@ -66,7 +66,7 @@ const TaskStatus = styled.span<{ status: string }>`
 `;
 
 function Calendar() {
-  const { statistics, isLoading, error } = useBlogStatistics();
+  const { statistics, isLoading, error } = useTaskStats();
   const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentView, setCurrentView] = useState<'month' | 'year'>('month');

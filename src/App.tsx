@@ -1,12 +1,8 @@
-// src/App.tsx
-import { BrowserRouter} from "react-router-dom";
-
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useTheme } from "./context/ThemeContext";
 import { darkTheme, lightTheme } from "./theme";
-import AppLayout from "./Layout";
-import GlobalStyles from "./GlobalStyle/fonts";
-
+import GlobalStyles from "./features/dashboard/styles/GlobalStyle/fonts";
+import { BaseRoutes } from "./routes";
 
 const App = () => {
   const themeContext = useTheme();
@@ -19,9 +15,7 @@ const App = () => {
   return (
     <StyledThemeProvider theme={theme}>
       <GlobalStyles/>
-      <BrowserRouter>
-        <AppLayout />
-      </BrowserRouter>
+      <BaseRoutes/>
     </StyledThemeProvider>
   );
 };

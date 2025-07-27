@@ -1,10 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const blogApi = axios.create({
-  baseURL: "http://localhost:8000",
+export const taskApi = axios.create({
+  baseURL: import.meta.env.VITE_BACKEND_DATA_API_URL,
 });
 
 export const githubApi = axios.create({
-  baseURL: "https://api.github.com", 
+  baseURL: 'https://api.github.com',
 });
-

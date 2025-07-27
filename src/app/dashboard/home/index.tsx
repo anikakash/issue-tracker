@@ -1,25 +1,11 @@
-import { Col, Row } from "antd";
-import DataCard from "./atmos/DataCard";
-import { useBlogStatistics } from "../Hooks/api";
-import styled from "styled-components";
-import {
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-  Legend,
-  Tooltip,
-} from "recharts";
-import GithubStats from "./GithubStats";
+import { GithubFilled } from '@ant-design/icons';
+import { Col, Row, Tooltip, Typography } from 'antd';
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import styled from 'styled-components';
 
-const DataTable = styled.div`
-  background-color: #ffffff;
-  padding: 17px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 17px;
-`;
+import GithubStats from './GithubStats';
+import { StatCard } from '../../../features/dashboard/components/StatCard';
+import { useTaskStats } from '../../../hooks/useTaskStats';
 
 const Boady = styled.div`
   display: flex;
@@ -49,6 +35,7 @@ const TaskItem = styled.div`
   color: #585757;
   border-bottom: 1px solid #f0f0f0;
 `;
+
 const TaskDate = styled.div`
   /* color: #8c8c8c; */
 `;
@@ -63,38 +50,53 @@ const ChartContainer = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
-const DashBoard = () => {
-  const { statistics, isLoading, error } = useBlogStatistics();
-  // console.log(statistics?.tasks);
+const DashboardHome = () => {
+  // const { t } = useTranslation('translation', {
+  //   keyPrefix: 'pages.dashboard',
+  // });
+
+  const { statistics, isLoading, error } = useTaskStats();
 
   const pendingTasks =
-    statistics?.tasks?.filter((task) => task.status !== "Complete") || [];
+    statistics?.tasks?.filter((task) => task.status !== 'Complete') || [];
 
   const pieData = [
-    { name: "Completed", value: statistics?.totalComplete, color: "#4CAF50" },
-    { name: "Pending", value: statistics?.totalPending, color: "#FFC107" },
+    { name: 'Completed', value: statistics?.totalComplete, color: '#4CAF50' },
+    { name: 'Pending', value: statistics?.totalPending, color: '#FFC107' },
     {
-      name: "In Progress",
+      name: 'In Progress',
       value: statistics?.totalInProgress,
-      color: "#6ad821",
+      color: '#6ad821',
     },
   ];
   if (isLoading || !statistics) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
 
   return (
-    <DataTable>
-      <Row gutter={[16, 16]}>
-        <Col xs={24} sm={12} md={8}>
-          <DataCard title="Total Task" value={statistics?.totalTasks} />
-        </Col>
-        <Col xs={24} sm={12} md={8}>
-          <DataCard title="Completed Tasks" value={statistics?.totalComplete} />
-        </Col>
-        <Col xs={24} sm={12} md={8}>
-          <DataCard title="Pending Tasks" value={statistics?.totalPending} />
+    <>
+      <Row style={{ marginBottom: 24 }}>
+        <Col xs={24} md={8}>
+          <Typography.Title level={4} style={{ marginTop: '0px' }}>
+            <span>{<GithubFilled />}</span>
+            {' GitHub Profile'}
+          </Typography.Title>
         </Col>
       </Row>
+
+      <Row gutter={[16, 16]}>
+        <Col xs={24} sm={12} md={8}>
+          <StatCard title={('Total Task')} value={statistics?.totalTasks} />
+        </Col>
+
+        <Col xs={24} sm={12} md={8}>
+          <StatCard title={('Complete Task')} value={statistics?.totalComplete} />
+        </Col>
+
+        <Col xs={24} sm={12} md={8}>
+          <StatCard title={('Pending Task')} value={statistics?.totalPending} />
+        </Col>
+      </Row>
+      <GithubStats />
       <Boady>
         <TableView>
           <SectionTitle>Pending Tasks</SectionTitle>
@@ -131,7 +133,7 @@ const DashBoard = () => {
                 align="center"
                 payload={pieData.map((item) => ({
                   value: item.name,
-                  type: "square",
+                  type: 'square',
                   color: item.color,
                 }))}
               />
@@ -139,10 +141,8 @@ const DashBoard = () => {
           </ResponsiveContainer>
         </ChartContainer>
       </Boady>
-
-      <GithubStats/>
-    </DataTable>
+    </>
   );
 };
 
-export default DashBoard;
+export default DashboardHome;
